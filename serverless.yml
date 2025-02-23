@@ -10,8 +10,15 @@ provider:
   runtime: nodejs20.x
   deploymentMethod: direct
   architecture: arm64
+  iam:
+    role:
+      statements: 
+        - Effect: "Allow"
+          Action: cognito-idp:AdminGetUser
+          Resource: !GetAtt PrideCodeUserPool.Arn
   environment:
     COGNITO_CLIENT_ID: !Ref PrideCodeUserPoolClient
+    COGNITO_USER_POOL_ID: !Ref PrideCodeUserPool
   httpApi:
     authorizers:
       CognitoAuthorizer:
@@ -107,3 +114,11 @@ functions:
       - httpApi:
           method: POST
           path: /auth/refresh-token
+  profile:
+    handler: src/functions/profile.handler
+    events:
+      - httpApi:
+          method: GET
+          path: /profile
+          authorizer:
+            name: CognitoAuthorizer
