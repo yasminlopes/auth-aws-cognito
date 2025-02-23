@@ -1,9 +1,10 @@
-import { UsernameExistsException, InvalidPasswordException } from "@aws-sdk/client-cognito-identity-provider";
+import { UsernameExistsException, InvalidPasswordException, CodeMismatchException } from "@aws-sdk/client-cognito-identity-provider";
 import { ErrorMessages } from "@/utils/errorMessages";
 
 const errorMap = new Map<new (...args: any[]) => Error, { statusCode: number; message: string }>([
   [UsernameExistsException, { statusCode: 409, message: ErrorMessages.USERNAME_EXISTS }],
   [InvalidPasswordException, { statusCode: 400, message: ErrorMessages.INVALID_PASSWORD }],
+  [CodeMismatchException, { statusCode: 400, message: ErrorMessages.CODE_MISMATCH }],
 ]);
 
 export function handleError(error: any) {
