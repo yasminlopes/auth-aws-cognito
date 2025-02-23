@@ -29,6 +29,7 @@ resources:
     PrideCodeUserPool:
       Type: AWS::Cognito::UserPool
       Properties:
+        DeletionProtection: INACTIVE
         UserPoolName: PrideCodeUserPool
         MfaConfiguration: OFF
         AutoVerifiedAttributes:
