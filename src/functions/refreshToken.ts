@@ -24,7 +24,7 @@ export async function handler(event: APIGatewayProxyEventV2) {
       return response(401, { message: ErrorMessages.INVALID_CREDENTIALS });
 
     return response(200, {
-      refreshToken: AuthenticationResult.RefreshToken,
+      accessToken: AuthenticationResult.AccessToken,
     });
   } catch (error) {
     const { statusCode, body } = handleError(error);
