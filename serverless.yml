@@ -91,31 +91,31 @@ resources:
         RefreshTokenValidity: 1440 # 60 dias
 functions:
   signUp:
-    handler: src/functions/signUp.handler
+    handler: src/functions/auth/signUp.handler
     events:
       - httpApi:
           method: POST
           path: /auth/sign-up
   accountConfirmation:
-    handler: src/functions/accountConfirmation.handler
+    handler: src/functions/auth/accountConfirmation.handler
     events:
       - httpApi:
           method: POST
           path: /auth/account-confirmation
   signIn:
-    handler: src/functions/signIn.handler
+    handler: src/functions/auth/signIn.handler
     events:
       - httpApi:
           method: POST
           path: /auth/sign-in
   refreshToken:
-    handler: src/functions/refreshToken.handler
+    handler: src/functions/auth/refreshToken.handler
     events:
       - httpApi:
           method: POST
           path: /auth/refresh-token
   profile:
-    handler: src/functions/profile.handler
+    handler: src/functions/auth/profile.handler
     events:
       - httpApi:
           method: GET
