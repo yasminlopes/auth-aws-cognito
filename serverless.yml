@@ -58,6 +58,19 @@ resources:
             Mutable: true
             Required: true
             AttributeDataType: String
+    PrideCodeUserPoolClient:
+      Type: AWS::Cognito::UserPoolClient
+      Properties:
+        ClientName: PrideCodeUserPoolClient
+        UserPoolId: !Ref PrideCodeUserPool
+        ExplicitAuthFlows:
+          - ALLOW_USER_PASSWORD_AUTH
+          - ALLOW_REFRESH_TOKEN_AUTH
+        TokenValidityUnits:
+          AccessToken: hours
+          RefreshToken: hours
+        AccessTokenValidity: 3
+        RefreshTokenValidity: 1440 # 60 dias
 functions:
   hello:
     handler: src/functions/hello.handler
