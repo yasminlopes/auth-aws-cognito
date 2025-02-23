@@ -10,6 +10,8 @@ provider:
   runtime: nodejs20.x
   deploymentMethod: direct
   architecture: arm64
+  environment:
+    COGNITO_CLIENT_ID: !Ref PrideCodeUserPoolClient
 
 custom:
   esbuild:
