@@ -12,6 +12,14 @@ provider:
   architecture: arm64
   environment:
     COGNITO_CLIENT_ID: !Ref PrideCodeUserPoolClient
+  httpApi:
+    authorizers:
+      CognitoAuthorizer:
+        type: jwt
+        identitySource: $request.header.Authorization
+        issuerUrl: !GetAtt PrideCodeUserPool.ProviderURL
+        audience:
+          - !Ref PrideCodeUserPoolClient
 
 custom:
   esbuild:
