@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "dependencies": {},
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node14 --outdir=dist",
+    "deploy": "serveless deploy",
+    "invoke": "sls invoke -f hello"
+  },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.134",
     "@types/node": "^20.11.24",
@@ -11,7 +15,7 @@
     "@typescript-eslint/parser": "^7.1.0",
     "esbuild": "^0.20.1",
     "eslint": "^8.57.0",
-    "serverless-esbuild": "^1.51.0",
+    "serverless-esbuild": "^1.54.6",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.3.3"
   }
