@@ -115,7 +115,7 @@ functions:
           method: POST
           path: /auth/refresh-token
   profile:
-    handler: src/functions/auth/profile.handler
+    handler: src/functions/profile.handler
     events:
       - httpApi:
           method: GET
