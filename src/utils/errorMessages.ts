@@ -10,4 +10,6 @@ export const ErrorMessages = {
   EXPIRED_CODE         : 'The provided code has expired.',
   LIMIT_EXCEEDED       : 'The limit for attempts has been exceeded.',
   TOO_MANY_REQUESTS    : 'Too many requests. Please try again later.',
+  CODE_SENT            : 'Code sent',
+  PASSWORD_RESET       : 'Password reset successfully',
 }
