@@ -14,8 +14,8 @@ export async function handler(event: APIGatewayProxyEventV2) {
       ClientId: process.env.COGNITO_CLIENT_ID,
       AuthFlow: 'USER_PASSWORD_AUTH',
       AuthParameters: {
-        Username: email,
-        Password: password,
+        USERNAME: email,
+        PASSWORD: password,
       },
     });
 
