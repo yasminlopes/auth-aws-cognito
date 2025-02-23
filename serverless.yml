@@ -90,6 +90,14 @@ resources:
         AccessTokenValidity: 3
         RefreshTokenValidity: 1440 # 60 dias
 functions:
+  cognitoCustomMessage:
+    handler: src/functions/cognitoCustomMessage.handler
+    events:
+      - cognitoUserPool:
+          pool: PrideCodeUserPool
+          trigger: CustomMessage
+          existing: true
+          forceDeploy: true
   signUp:
     handler: src/functions/auth/signUp.handler
     events:
